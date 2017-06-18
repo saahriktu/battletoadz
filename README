@@ -1,0 +1,12 @@
+Battletoads v0.2
+Nonvisual isometric arcage game.
+
+U choosing your yz-projection sector and go (forward movements along x-axis).
+ |z
+ |__x
+/y
+
+789|z
+456|
+123|
+y--+ 
