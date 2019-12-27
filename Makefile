@@ -1,4 +1,14 @@
+ifeq ($(prefix),)
+	prefix=/usr/local
+endif
+ifeq ($(shell which $(CC)),)
+	CC=gcc
+endif
 all:
-	gcc -o battletoadz battletoadz.c
+	$(CC) $(CFLAGS) -o battletoadz battletoadz.c
+	strip -S battletoadz
 install:
-	cp battletoadz /usr/games/
+	if [ ! -d "$(DESTDIR)$(prefix)/games" ]; then mkdir -p $(DESTDIR)$(prefix)/games; fi
+	install -m755 battletoadz $(DESTDIR)$(prefix)/games
+clean:
+	rm battletoadz
